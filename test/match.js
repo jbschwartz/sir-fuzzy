@@ -9,5 +9,9 @@ describe('match', function() {
       var result = sir.match('small', 'In Portsmouth, all is small');
       result[0].positions.should.deep.equal([22, 23, 24, 25, 26]);
     });
+    it('should return \'Smallest [Small] Smaller\'', function () {
+      var result = sir.match('small', 'Smallest Small Smaller');
+      result[0].positions.should.deep.equal([9, 10, 11, 12, 13]);
+    });
   });
 });
