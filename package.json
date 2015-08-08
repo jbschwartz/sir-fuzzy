@@ -1,0 +1,10 @@
+{
+  "name": "sir-fuzzy",
+  "version": "0.0.1",
+  "description": "Fuzzy matching",
+  "author": "James Schwartz <james@schwartz.engineer>",
+  "devDependencies": {
+    "mocha": "2.2.5",
+    "chai": "3.2.0"
+  }
+}

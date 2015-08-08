@@ -42,3 +42,5 @@ var match = function(needle, haystack) {
 
     return result[needle.length-1];
 }
+
+exports.match = match;
