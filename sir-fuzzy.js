@@ -6,6 +6,14 @@ var match = function(needle, haystack) {
       "Punctutation": /[,.;:]/
     }
     haystack.split("").forEach(function(hayChar, hayCharIndex) {
+        var nextHaystackCharacter = function() {
+          return haystack[hayCharIndex + 1];
+        }
+
+        var isLastHaystackCharacter = function() {
+          return hayCharIndex == (haystack.length - 1);
+        }
+
         needle.split("").some(function(needleChar, needleCharIndex) {
             if(!result[needleCharIndex]) { result[needleCharIndex] = [] }
 
@@ -31,7 +39,9 @@ var match = function(needle, haystack) {
 
                             if(needleCharIndex == needle.length - 1 &&
                                 ((positions[positions.length-1] - positions[0]) == (needle.length - 2)) && (hayCharIndex == (positions[positions.length-1]+1))) {
-                              if(is.Whitespace.test(haystack[hayCharIndex + 1]) || is.Punctutation.test(haystack[hayCharIndex+1]) || (hayCharIndex == haystack.length - 1)) {
+                              if(is.Whitespace.test(nextHaystackCharacter()) ||
+                                 is.Punctutation.test(nextHaystackCharacter()) ||
+                                 isLastHaystackCharacter()) {
                                 score += 1.5
                               }
                             }
