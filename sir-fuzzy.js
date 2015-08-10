@@ -27,7 +27,7 @@ var match = function(needle, haystack) {
 
                             if(needleCharIndex == needle.length - 1 &&
                                 ((positions[positions.length-1] - positions[0]) == (needle.length - 2)) && (hayCharIndex == (positions[positions.length-1]+1))) {
-                              if(haystack[hayCharIndex + 1] == ' ' || (hayCharIndex == haystack.length - 1)) {
+                              if(haystack[hayCharIndex + 1] == ' ' || haystack[hayCharIndex + 1] == ',' || (hayCharIndex == haystack.length - 1)) {
                                 score += 1.5
                               }
                             }
