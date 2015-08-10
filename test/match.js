@@ -13,5 +13,9 @@ describe('match', function() {
       var result = sir.match('small', 'Smallest Small Smaller');
       result[0].positions.should.deep.equal([9, 10, 11, 12, 13]);
     });
-  });
+    it('should return \'Smallest Smaller [Small]\'', function () {
+      var result = sir.match('small', 'Smallest Smaller Small');
+      result[0].positions.should.deep.equal([17, 18, 19, 20, 21]);
+    });
+  })
 });
