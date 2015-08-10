@@ -2,7 +2,8 @@ var match = function(needle, haystack) {
     var lastWhitespace = 0;
     var result = [];
     var is = {
-      "Whitespace": /\s/
+      "Whitespace": /\s/,
+      "Punctutation": /[,.;:]/
     }
     haystack.split("").forEach(function(hayChar, hayCharIndex) {
         needle.split("").some(function(needleChar, needleCharIndex) {
@@ -30,7 +31,7 @@ var match = function(needle, haystack) {
 
                             if(needleCharIndex == needle.length - 1 &&
                                 ((positions[positions.length-1] - positions[0]) == (needle.length - 2)) && (hayCharIndex == (positions[positions.length-1]+1))) {
-                              if(is.Whitespace.test(haystack[hayCharIndex + 1]) || haystack[hayCharIndex + 1] == ',' || (hayCharIndex == haystack.length - 1)) {
+                              if(is.Whitespace.test(haystack[hayCharIndex + 1]) || is.Punctutation.test(haystack[hayCharIndex+1]) || (hayCharIndex == haystack.length - 1)) {
                                 score += 1.5
                               }
                             }
