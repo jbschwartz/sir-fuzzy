@@ -1,12 +1,14 @@
 var match = function(needle, haystack) {
     var lastWhitespace = 0;
     var result = [];
-    var isWhitespace = /\s/;
+    var is = {
+      "Whitespace": /\s/
+    }
     haystack.split("").forEach(function(hayChar, hayCharIndex) {
         needle.split("").some(function(needleChar, needleCharIndex) {
             if(!result[needleCharIndex]) { result[needleCharIndex] = [] }
 
-            if(isWhitespace.test(hayChar)) {
+            if(is.Whitespace.test(hayChar)) {
                 lastWhitespace = hayCharIndex;
                 return true;
             }
@@ -28,7 +30,7 @@ var match = function(needle, haystack) {
 
                             if(needleCharIndex == needle.length - 1 &&
                                 ((positions[positions.length-1] - positions[0]) == (needle.length - 2)) && (hayCharIndex == (positions[positions.length-1]+1))) {
-                              if(isWhitespace.test(haystack[hayCharIndex + 1]) || haystack[hayCharIndex + 1] == ',' || (hayCharIndex == haystack.length - 1)) {
+                              if(is.Whitespace.test(haystack[hayCharIndex + 1]) || haystack[hayCharIndex + 1] == ',' || (hayCharIndex == haystack.length - 1)) {
                                 score += 1.5
                               }
                             }
