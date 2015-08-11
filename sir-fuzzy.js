@@ -41,8 +41,7 @@ var match = function(needle, haystack) {
                                 score += 1;
                             }
 
-                            if(isLastNeedleChar() &&
-                                ((positions[positions.length-1] - positions[0]) == (needle.length - 2)) && (hayCharIndex == (positions[positions.length-1]+1))) {
+                            if(isLastNeedleChar() && ((hayCharIndex - positions[0]) == (needle.length - 1))) {
                               if(is.Whitespace(nextHaystackCharacter()) ||
                                  is.Punctutation(nextHaystackCharacter()) ||
                                  isLastHaystackCharacter()) {
