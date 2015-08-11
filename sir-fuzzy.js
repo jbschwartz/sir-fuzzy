@@ -54,9 +54,7 @@ var match = function(needleString, haystackString) {
         needle.reset();
     } while(haystack.advance());
 
-    result[needle.length-1].sort(function(a, b) { return b.score - a.score; });
-
-    return result[needle.length-1];
+    return result.pop().sort(function(a, b) { return b.score - a.score; });
 }
 
 exports.match = match;
