@@ -1,3 +1,6 @@
+// Copyright 2015 James Schwartz
+// Licensed under the MIT License
+
 var Cursor = require('./cursor.js');
 
 var match = function(needleString, haystackString) {

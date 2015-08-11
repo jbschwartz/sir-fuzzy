@@ -1,3 +1,6 @@
+// Copyright 2015 James Schwartz
+// Licensed under the MIT License
+
 var Cursor = function(string, index) {
   this.index = index || 0;
   this.string = string;
