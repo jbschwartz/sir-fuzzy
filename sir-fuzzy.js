@@ -19,6 +19,10 @@ var match = function(needle, haystack) {
               return needleCharIndex == (needle.length - 1);
             }
 
+            var isFirstNeedleChar = function() {
+              return needleCharIndex == 0;
+            }
+
             if(!result[needleCharIndex]) { result[needleCharIndex] = [] }
 
             if(is.Whitespace(hayChar)) {
@@ -27,7 +31,7 @@ var match = function(needle, haystack) {
             }
 
             if(needleChar.toLowerCase() == hayChar.toLowerCase()) {
-                if(needleCharIndex == 0) {
+                if(isFirstNeedleChar()) {
                     var score = (lastWhitespace == hayCharIndex - 1) ? 2 : 1;
                     result[needleCharIndex].push({positions: [hayCharIndex], score: score});
                 } else {
