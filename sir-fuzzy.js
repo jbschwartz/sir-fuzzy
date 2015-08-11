@@ -15,6 +15,10 @@ var match = function(needle, haystack) {
         }
 
         needle.split("").some(function(needleChar, needleCharIndex) {
+            var isLastNeedleChar = function() {
+              return needleCharIndex == (needle.length - 1);
+            }
+
             if(!result[needleCharIndex]) { result[needleCharIndex] = [] }
 
             if(is.Whitespace(hayChar)) {
@@ -37,7 +41,7 @@ var match = function(needle, haystack) {
                                 score += 1;
                             }
 
-                            if(needleCharIndex == needle.length - 1 &&
+                            if(isLastNeedleChar() &&
                                 ((positions[positions.length-1] - positions[0]) == (needle.length - 2)) && (hayCharIndex == (positions[positions.length-1]+1))) {
                               if(is.Whitespace(nextHaystackCharacter()) ||
                                  is.Punctutation(nextHaystackCharacter()) ||
